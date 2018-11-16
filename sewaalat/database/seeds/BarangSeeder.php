@@ -14,7 +14,7 @@ class BarangSeeder extends Seeder
     public function run()
     {
         $barang = new Barang;
-        $barang->nama = '';
+        $barang->nama = 'handuk';
         $barang->harga = '100000';
         $barang->stock = '100';
         $barang->imageUrl = 'zzz';
