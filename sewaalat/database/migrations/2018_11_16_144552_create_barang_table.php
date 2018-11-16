@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateBarangTable extends Migration
 {
-    public $tablename = 'password_resets';
+    public $tablename = 'barang';
     /**
      * Run the migrations.
      *
@@ -15,9 +15,14 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create($this->tablename, function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->increments('id');
+            $table->string('nama');
+            $table->string('harga');
+            $table->string('stock');
+            $table->string('imageUrl');
+
+            $table->char('kategori_id');
+            $table->timestamps();
         });
     }
 

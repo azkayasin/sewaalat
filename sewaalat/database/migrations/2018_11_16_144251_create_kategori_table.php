@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateKategoriTable extends Migration
 {
-    public $tablename = 'password_resets';
+    public $tablename = 'kategori';
     /**
      * Run the migrations.
      *
@@ -15,9 +15,9 @@ class CreatePasswordResetsTable extends Migration
     public function up()
     {
         Schema::create($this->tablename, function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->increments('id');
+            $table->string('kategori');
+            $table->timestamps();
         });
     }
 
