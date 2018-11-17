@@ -305,7 +305,7 @@
 						</h4>
 
 						<ul class="p-b-54">
-<<<<<<< Updated upstream
+
 							@foreach ($kategori as $kateg)
 							<li class="p-t-4">
 								<a href="#" class="s-text13 active1">
@@ -313,16 +313,6 @@
 								</a>
 							</li>
 							@endforeach
-=======
-							@foreach ($kategoris as $kategori)
-							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
-									{{$kategori}}
-								</a>
-							</li>
-							@endforeach
-
->>>>>>> Stashed changes
 						</ul>
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
