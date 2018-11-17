@@ -367,35 +367,13 @@
 						</h4>
 
 						<ul class="p-b-54">
+							@foreach ($kategori as $kateg)
 							<li class="p-t-4">
 								<a href="#" class="s-text13 active1">
-									All
+									{{$kateg->kategori}}
 								</a>
 							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Women
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Men
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Kids
-								</a>
-							</li>
-
-							<li class="p-t-4">
-								<a href="#" class="s-text13">
-									Accesories
-								</a>
-							</li>
+							@endforeach
 						</ul>
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
