@@ -15,10 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/produk', 'HomeController@produk')->name('produk');
 Route::get('/cart', 'HomeController@cart')->name('cart');
+
+Route::get('/add-to-cart/{id}','HomeController@addToCart')->name('bebas');
+//Route::patch('/update-cart','HomeController@update');
 
 Route::get('/filter/{filter}', 'HomeController@filter' ) ->name('filter');

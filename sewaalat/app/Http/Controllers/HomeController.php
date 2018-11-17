@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Barang;
 use App\Kategori;
 use DB;
 use Illuminate\Http\Request;
@@ -35,28 +36,78 @@ class HomeController extends Controller
         return view('produk', compact('kategori', 'produk'));
 
     }
-    public function filter($id)
-    {
-        //$filter = barang::where('id', $id)->get();
-        //$produk = DB::table('barang')->get();
-        $produk = DB::table('barang')->where('id', $id +1)->get();
-        $kategori = DB::table('kategori')->get();
-        //$filter = DB::table('barang')->where('id', $id)->get();
-        //dd($filter);
-        return view('produk', compact('produk','kategori'));
-
-    }
     public function cart()
     {
         return view('cart');
     }
 
-    // public function kategori()
-    // {
-    //     $kategori = DB::table('kategori')->get();
-    //     //$kategori = DB::table('kategori')->pluck('kategori');
-    //     //dd($kategori);
-    //     return view('produk', compact('kategori'));
+    public function addToCart($id)
+    {
+        $produk = Barang::find($id);
+        if(!$produk){
 
-    // }
+            abort(404);
+        }
+
+        $cart = session()->get('cart');
+
+        if(!$cart){
+            $cart = [
+                $id => [
+                    "nama" => $produk->nama,
+                    "harga" => $produk->harga,
+                    "jumlah" => 1,
+                    "image"=>$produk->imageUrl
+                ]
+            ];
+
+            session()->put('cart',$cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        if(isset($cart[$id])) {
+ 
+            $cart[$id]['jumlah']++;
+ 
+            session()->put('cart', $cart);
+ 
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+ 
+        }
+
+        $cart[$id] = [
+            "nama" => $produk->nama,
+            "harga" => $produk->harga,
+            "jumlah" => 1,
+            "image"=>$produk->imageUrl
+        ];
+ 
+        session()->put('cart', $cart);
+ 
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+    }
+
+    public function update(Request $request)
+    {
+        if($request->id and $request->quantity)
+        {
+            $cart = session()->get('cart');
+
+            $cart[$request->id]["jumlah"] = $request->quantity;
+
+            session()->put('cart', $cart);
+
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+
+    public function filter($id)
+    {
+        $produk = DB::table('barang')->where('id', $id)->get();
+        $kategori = DB::table('kategori')->get();
+        return view('produk', compact('produk','kategori'));
+
+    }
 }
