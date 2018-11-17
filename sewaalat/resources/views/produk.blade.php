@@ -45,7 +45,7 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="{{ url('/') }}" class="logo">
-					<img src="images/icons/logo.png" alt="IMG-LOGO">
+					<img src="images/icons/logo2.png" alt="IMG-LOGO">
 				</a>
 
 				<!-- Menu -->
@@ -105,38 +105,6 @@
 
 										<span class="header-cart-item-info">
 											1 x $19.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
 										</span>
 									</div>
 								</li>
@@ -207,37 +175,7 @@
 									</div>
 								</li>
 
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="images/item-cart-02.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Converse All Star Hi Black Canvas
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $39.00
-										</span>
-									</div>
-								</li>
-
-								<li class="header-cart-item">
-									<div class="header-cart-item-img">
-										<img src="images/item-cart-03.jpg" alt="IMG">
-									</div>
-
-									<div class="header-cart-item-txt">
-										<a href="#" class="header-cart-item-name">
-											Nixon Porter Leather Watch In Tan
-										</a>
-
-										<span class="header-cart-item-info">
-											1 x $17.00
-										</span>
-									</div>
-								</li>
+								li>
 							</ul>
 
 							<div class="header-cart-total">
@@ -345,12 +283,12 @@
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/heading-pages-02.jpg);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/heading2.jpg);">
 		<h2 class="l-text2 t-center">
-			Women
+			PRODUK KAMI
 		</h2>
 		<p class="m-text13 t-center">
-			New Arrivals Women Collection 2018
+			Produk Unggulan Terbaik dan Ternyaman
 		</p>
 	</section>
 
@@ -363,10 +301,11 @@
 					<div class="leftbar p-r-20 p-r-0-sm">
 						<!--  -->
 						<h4 class="m-text14 p-b-7">
-							Categories
+							Kategori
 						</h4>
 
 						<ul class="p-b-54">
+<<<<<<< Updated upstream
 							@foreach ($kategori as $kateg)
 							<li class="p-t-4">
 								<a href="#" class="s-text13 active1">
@@ -374,6 +313,16 @@
 								</a>
 							</li>
 							@endforeach
+=======
+							@foreach ($kategoris as $kategori)
+							<li class="p-t-4">
+								<a href="#" class="s-text13 active1">
+									{{$kategori}}
+								</a>
+							</li>
+							@endforeach
+
+>>>>>>> Stashed changes
 						</ul>
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Search Products...">
