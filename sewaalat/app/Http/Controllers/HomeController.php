@@ -35,6 +35,17 @@ class HomeController extends Controller
         return view('produk', compact('kategori', 'produk'));
 
     }
+    public function filter($id)
+    {
+        //$filter = barang::where('id', $id)->get();
+        //$produk = DB::table('barang')->get();
+        $produk = DB::table('barang')->where('id', $id +1)->get();
+        $kategori = DB::table('kategori')->get();
+        //$filter = DB::table('barang')->where('id', $id)->get();
+        //dd($filter);
+        return view('produk', compact('produk','kategori'));
+
+    }
     public function cart()
     {
         return view('cart');
