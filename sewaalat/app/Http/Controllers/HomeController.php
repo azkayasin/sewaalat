@@ -110,4 +110,12 @@ class HomeController extends Controller
         return view('produk', compact('produk','kategori'));
 
     }
+
+    public function hari ($pesan, $kembali)
+    {
+        $pesan = Carbon::parse ($pesan);
+        $kembali = Carbon::parse ($kembali);
+        $lama = $kembali->diffInDays($pesan);
+        return view('produk', compact('lama'));
+    }
 }

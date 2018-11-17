@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,7 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!--===============================================================================================-->
+	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css"/>
 </head>
 <body class="animsition">
 
@@ -406,15 +408,37 @@
 			</div>
 
 			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-
+				<div class="row">
+					<div class="form-group">
+					<label>Tanggal Mulai</label>
+					<div class="input-group date" id="tgl1">
+						<input type="text" class="form-control" />	
+							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+					</div>
+					</div>
+				</div>
+				<div class="row">
+						<div class="form-group">
+					<label>Tanggal Berakhir</label>
+					<div class="input-group date" id="tgl2">
+						<input type="text" class="form-control"/>	
+							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+					</div>
+				</div>
+				</div>
+				<div class="form-group">
+					<label>Selisih Hari</label>
+						<input type="text" class="form-control" id="selisih"/>
+				</div>
 				<div class="size10 trans-0-4 m-t-10 m-b-10">
 					<!-- Button -->
 					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 update-cart" data-id="{{$id}}">
+						
 						Update Cart
+						
 					</button>
 				</div>
 			</div>
-
 			<!-- Total -->
 			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
 				<h5 class="m-text20 p-b-24">
@@ -426,7 +450,6 @@
 				@foreach(session('cart') as $id => $details)
 				@endforeach
 				@endif
-
 				<div class="flex-w flex-sb-m p-b-12">
 					<span class="s-text18 w-size19 w-full-sm">
 						Total:
@@ -724,6 +747,10 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/moment-with-locales.js"></script>
+	<script src="assets/js/jquery-1.11.3.min.js"></script>
+	<script src="assets/js/bootstrap-datetimepicker.js"></script>
 
 	<script type="text/javascript">
 
@@ -741,8 +768,7 @@
 				}
 			});
 		});
-
-	</script>
+</script>
 	<script>
 		jQuery(document).ready(function(){
 			jQuery('#ajaxSubmit').click(function(e){
@@ -781,6 +807,42 @@
 			});
 		});
 	</script>
+	<script>
+$(function() { 
+  $('#tgl1').datetimepicker({
+   locale:'id',
+   format:'DD/MMMM/YYYY'
+   });
+   
+  $('#tgl2').datetimepicker({
+   useCurrent: false,
+   locale:'id',
+   format:'DD/MMMM/YYYY'
+   });
+   
+   $('#tgl1').on("dp.change", function(e) {
+    $('#tgl2').data("DateTimePicker").minDate(e.date);
+  });
+  
+   $('#tgl2').on("dp.change", function(e) {
+    $('#tgl1').data("DateTimePicker").maxDate(e.date);
+      CalcDiff()
+   });
+  
+});
+
+function CalcDiff(){
+var a=$('#tgl1').data("DateTimePicker").date();
+var b=$('#tgl2').data("DateTimePicker").date();
+    var timeDiff=0
+     if (b) {
+            timeDiff = (b - a) / 1000;
+        }
+var hari = $('#selisih').val(Math.floor(timeDiff/(86400)));
+	$('#selisih').val(Math.floor(timeDiff/(86400))+' Hari')   
+}
+</script>	
+
 
 </body>
 </html>
