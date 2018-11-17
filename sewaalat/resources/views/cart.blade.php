@@ -382,297 +382,405 @@
 							</td>
 							<td class="column-2">{{$details['nama']}}</td>
 							<td class="column-3">Rp.{{$details['harga']}},00<td>
-							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
+								<td class="column-4">
+									<div class="flex-w bo5 of-hidden w-size17">
+										<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+											<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+										</button>
 
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="{{$details['jumlah']}}">
+										<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="{{$details['jumlah']}}">
 
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
-								</div>
-							</td>
-							<td class="column-5">Rp.{{$details['harga'] * $details['jumlah']}},00</td>
-						</tr>
-						@endforeach
-						@endif
-					</tbody>
+										<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+											<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+										</button>
+									</div>
+								</td>
+								<td class="column-5">Rp.{{$details['harga'] * $details['jumlah']}},00</td>
+							</tr>
+							@endforeach
+							@endif
+						</tbody>
 
-				</table>
-			</div>
-		</div>
-
-		<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-
-			<div class="size10 trans-0-4 m-t-10 m-b-10">
-				<!-- Button -->
-				<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 update-cart" data-id="{{$id}}">
-					Update Cart
-				</button>
-			</div>
-		</div>
-
-		<!-- Total -->
-		<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-			<h5 class="m-text20 p-b-24">
-				Cart Totals
-			</h5>
-
-			<!--  -->
-			@if(session('cart'))
-			@foreach(session('cart') as $id => $details)
-			@endforeach
-			@endif
-
-			<div class="flex-w flex-sb-m p-b-12">
-				<span class="s-text18 w-size19 w-full-sm">
-					Total:
-				</span>
-
-				<span class="m-text21 w-size20 w-full-sm">
-					Rp. {{$total}} ,00
-				</span>
-			</div>
-
-			<div class="size15 trans-0-4">
-				<!-- Button -->
-				<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-					Proceed to Checkout
-				</button>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-
-<!-- Footer -->
-<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-	<div class="flex-w p-b-90">
-		<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-			<h4 class="s-text12 p-b-30">
-				GET IN TOUCH
-			</h4>
-
-			<div>
-				<p class="s-text7 w-size27">
-					Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-				</p>
-
-				<div class="flex-m p-t-30">
-					<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-					<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-					<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-					<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-					<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+					</table>
 				</div>
 			</div>
-		</div>
 
-		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-			<h4 class="s-text12 p-b-30">
-				Categories
-			</h4>
+			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
 
-			<ul>
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Men
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Women
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Dresses
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Sunglasses
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-			<h4 class="s-text12 p-b-30">
-				Links
-			</h4>
-
-			<ul>
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Search
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						About Us
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Contact Us
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Returns
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-			<h4 class="s-text12 p-b-30">
-				Help
-			</h4>
-
-			<ul>
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Track Order
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Returns
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						Shipping
-					</a>
-				</li>
-
-				<li class="p-b-9">
-					<a href="#" class="s-text7">
-						FAQs
-					</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-			<h4 class="s-text12 p-b-30">
-				Newsletter
-			</h4>
-
-			<form>
-				<div class="effect1 w-size9">
-					<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
-					<span class="effect1-line"></span>
-				</div>
-
-				<div class="w-size2 p-t-20">
+				<div class="size10 trans-0-4 m-t-10 m-b-10">
 					<!-- Button -->
-					<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-						Subscribe
+					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 update-cart" data-id="{{$id}}">
+						Update Cart
 					</button>
 				</div>
+			</div>
 
-			</form>
+			<!-- Total -->
+			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
+				<h5 class="m-text20 p-b-24">
+					Cart Totals
+				</h5>
+
+				<!--  -->
+				@if(session('cart'))
+				@foreach(session('cart') as $id => $details)
+				@endforeach
+				@endif
+
+				<div class="flex-w flex-sb-m p-b-12">
+					<span class="s-text18 w-size19 w-full-sm">
+						Total:
+					</span>
+
+					<span class="m-text21 w-size20 w-full-sm">
+						Rp. {{$total}} ,00
+					</span>
+				</div>
+
+				<div class="size15 trans-0-4">
+					<!-- Button -->
+					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" data-target="#myModal" data-toggle="modal">
+						Proceed to Checkout
+					</button>
+				</div>
+			</div>
 		</div>
+	</section>
+
+
+
+	<!-- Footer -->
+	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+		<div class="flex-w p-b-90">
+			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					GET IN TOUCH
+				</h4>
+
+				<div>
+					<p class="s-text7 w-size27">
+						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+					</p>
+
+					<div class="flex-m p-t-30">
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Categories
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Men
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Women
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Dresses
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Sunglasses
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Links
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Search
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							About Us
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Contact Us
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Returns
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
+				<h4 class="s-text12 p-b-30">
+					Help
+				</h4>
+
+				<ul>
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Track Order
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Returns
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							Shipping
+						</a>
+					</li>
+
+					<li class="p-b-9">
+						<a href="#" class="s-text7">
+							FAQs
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
+				<h4 class="s-text12 p-b-30">
+					Newsletter
+				</h4>
+
+				<form>
+					<div class="effect1 w-size9">
+						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
+						<span class="effect1-line"></span>
+					</div>
+
+					<div class="w-size2 p-t-20">
+						<!-- Button -->
+						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+							Subscribe
+						</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<div class="t-center p-l-15 p-r-15">
+			<a href="#">
+				<img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
+			</a>
+
+			<a href="#">
+				<img class="h-size2" src="images/icons/discover.png" alt="IMG-DISCOVER">
+			</a>
+
+			<div class="t-center s-text8 p-t-20">
+				Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top bg0-hov" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="fa fa-angle-double-up" aria-hidden="true"></i>
+		</span>
 	</div>
 
-	<div class="t-center p-l-15 p-r-15">
-		<a href="#">
-			<img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
-		</a>
+	<!-- Container Selection -->
+	<div id="dropDownSelect1"></div>
+	<div id="dropDownSelect2"></div>
 
-		<a href="#">
-			<img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
-		</a>
+	<div class="container">
+		<h2>Modal Example</h2>
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">Open Modal</button>
+		<form method="post" action="{{url('chempionleague')}}" id="form">
+			@csrf
+			<!-- Modal -->
+			<div class="modal" tabindex="-1" role="dialog" id="myModal">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="alert alert-danger" style="display:none"></div>
+						<div class="modal-header">
+							
+							<h5 class="modal-title">Booking</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						
+						<div class="modal-body">
+							<div class="row">
+								
+								<div class="form-group col-md-6">
+									<label for="Nama">Nama:</label>
+									@if(session('cart'))
+									@foreach(session('cart') as $id => $details)
+									<ul>
+										<li id="harga">{{$details['nama']}}</li>
+									</ul>
+									@endforeach
+									@endif
+								</div>
+								<div class="form-group col-md-6">
+									<label for="Harga">Harga:</label>
+									@if(session('cart'))
+									@foreach(session('cart') as $id => $details)
+									<ul>
+										<li id="harga">{{$details['harga'] * $details['jumlah']}}</li>
+									</ul>
+									@endforeach
+									@endif
+								</div>
 
-		<a href="#">
-			<img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
-		</a>
 
-		<a href="#">
-			<img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
-		</a>
+							</div>
+							
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Country">Total: </label>
+									<span class="m-text21 w-size20 w-full-sm">Rp. {{$total}} ,00</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Tanggal">Tanggal Pemesan:</label>
+									<input type="date" class="form-control" name="score" id="tanggal">
+								</div>
+							</div>
+						</div>
 
-		<a href="#">
-			<img class="h-size2" src="images/icons/discover.png" alt="IMG-DISCOVER">
-		</a>
-
-		<div class="t-center s-text8 p-t-20">
-			Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-		</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+							<button  class="btn btn-success btn-addcart" id="ajaxSubmit" >Pesan</button>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</form>
 	</div>
-</footer>
 
 
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
+	<script type="text/javascript">
+		$(".selection-1").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
 
-<!-- Back to top -->
-<div class="btn-back-to-top bg0-hov" id="myBtn">
-	<span class="symbol-btn-back-to-top">
-		<i class="fa fa-angle-double-up" aria-hidden="true"></i>
-	</span>
-</div>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect2')
+		});
+	</script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
-<!-- Container Selection -->
-<div id="dropDownSelect1"></div>
-<div id="dropDownSelect2"></div>
+	<script type="text/javascript">
 
+		$(".update-cart").click(function (e) {
+			e.preventDefault();
 
+			var ele = $(this);
 
-<!--===============================================================================================-->
-<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-<script type="text/javascript">
-	$(".selection-1").select2({
-		minimumResultsForSearch: 20,
-		dropdownParent: $('#dropDownSelect1')
-	});
+			$.ajax({
+				url: '{{ url('update-cart') }}',
+				method: "patch",
+				data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".jumlah").val()},
+				success: function (response) {
+					window.location.reload();
+				}
+			});
+		});
 
-	$(".selection-2").select2({
-		minimumResultsForSearch: 20,
-		dropdownParent: $('#dropDownSelect2')
-	});
-</script>
-<!--===============================================================================================-->
-<script src="js/main.js"></script>
+	</script>
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('#ajaxSubmit').click(function(e){
+				e.preventDefault();
+				$.ajaxSetup({
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+					}
+				});
+				jQuery.ajax(
+					url: "{{ url('/home') }}",
+					method: 'post',
+					data: {s
+						nama: jQuery('#nama').val(),
+						harga: jQuery('#harga').val(),
+						country: jQuery('#country').val(),
+						score: jQuery('#score').val(),
+					},
+					success: function(result){
+						if(result.errors)
+						{
+							jQuery('.alert-danger').html('');
 
-<script type="text/javascript">
-
-        $(".update-cart").click(function (e) {
-           e.preventDefault();
-
-           var ele = $(this);
-
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".jumlah").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
-
-</script>
+							jQuery.each(result.errors, function(key, value){
+								jQuery('.alert-danger').show();
+								jQuery('.alert-danger').append('<li>'+value+'</li>');
+							});
+						}
+						else
+						{
+							jQuery('.alert-danger').hide();
+							$('#open').hide();
+							$('#myModal').modal('hide');
+						}
+					}});
+			});
+		});
+	</script>
 
 </body>
 </html>
