@@ -21,6 +21,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/produk', 'HomeController@produk')->name('produk');
 Route::get('/cart', 'HomeController@cart')->name('cart');
+Route::get('/pemesanan', 'HomeController@pemesanan')->name('pemesanan');
+Route::get('/contact', 'HomeController@contact')->name('contact');
 
 Route::get('/add-to-cart/{id}','HomeController@addToCart')->name('bebas');
 Route::patch('/update-cart','HomeController@update');

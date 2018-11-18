@@ -307,7 +307,7 @@
 <!-- Title Page -->
 <section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/images/heading2.jpg);">
 	<h2 class="l-text2 t-center">
-		PRODUK KAMI
+		Contact Kami
 	</h2>
 	<p class="m-text13 t-center">
 		Produk Unggulan Terbaik dan Ternyaman
@@ -316,80 +316,37 @@
 
 
 <!-- Content page -->
-<section class="bgwhite p-t-55 p-b-65">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
-				<div class="leftbar p-r-20 p-r-0-sm">
-					<!--  -->
-					<h4 class="m-text14 p-b-7">
-						Kategori
-					</h4>
-
-					<ul class="p-b-54">
-						<li class="p-t-4">
-							<a href="{{route('produk')}}" class="s-text13 active1">
-								Semua
-							</a>
-						</li>
-						@foreach ($kategori as $kateg)
-						<li class="p-t-4">
-							<a href="{{route('filter', $kateg->id)}}" class="s-text13 active1">
-								{{$kateg->kategori}}
-							</a>
-						</li>
-						@endforeach
-					</ul>
-				</div>
-			</div>
-
-			<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-
-				<!-- Product -->
-				<div class="row">
-					@foreach ($produk as $pro)
-					<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
-						<!-- Block2 -->
-						<div class="block2">
-							<div class="block2-img wrap-pic-w of-hidden pos-relative">
-								<img src="{{$pro->imageUrl}}" alt="IMG-PRODUCT">
-
-								<div class="block2-overlay trans-0-4">
-									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-									</a>
-
-									<div class="block2-btn-addcart w-size1 trans-0-4">
-										<!-- Button -->
-										<p class="btn-holder"><a href="{{ url('add-to-cart/'.$pro->id) }}" class="btn btn-success btn-block text-center" role="button">Add to cart</a> </p>
-									</div>
-								</div>
-							</div>
-
-							<div class="block2-txt p-t-20">
-								<a href="product-detail.html" class="block2-name dis-block s-text3 p-b-5">
-									{{$pro->nama}}
-								</a>
-
-								<span class="block2-price m-text6 p-r-5">
-									RP. {{$pro->harga}} ,00
-								</span>
-							</div>
-						</div>
+<section class="bgwhite p-t-66 p-b-60">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 p-b-30">
+					<div class="p-r-20 p-r-0-lg">
+						<iframe class="contact-map size21" id="google_map" data-pin="images/icons/logo1.png" data-scrollwhell="0" data-draggable="1" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.63622891958!2d112.79269731450354!3d-7.282165673588395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTYnNTUuOCJTIDExMsKwNDcnNDEuNiJF!5e0!3m2!1sid!2sid!4v1542568424380" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 					</div>
-					@endforeach	
 				</div>
 
-				<!-- Pagination -->
-				<div class="pagination flex-m flex-w p-t-26">
-					<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-					<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+				<div class="col-md-6 p-b-30">
+					<form class="leave-comment">
+						<h4 class="m-text26 p-b-36 p-t-15">
+							Hubungi Kami
+						</h4>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Email : Itsrent@its.com" disabled="">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Handphone : 085786869692" disabled="">
+						</div>
+
+						<div class="bo4 of-hidden size15 m-b-20">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Facebook : ITSRent" disabled="">
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
 
 <!-- Footer -->
@@ -493,6 +450,8 @@
 	</script>
 	<!--===============================================================================================-->
 	<script src="{{URL::asset('js/main.js') }}"></script>
+	<script src="{{URL::asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes')}}"></script>
+	<script src="{{URL::asset('js/map-custom.js')}}"></script>
 
 
 </body>

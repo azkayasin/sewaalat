@@ -65,6 +65,15 @@
 						@endif
 					</li>
 					@else
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('produk') }}">{{ __('Produk') }}</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url('pemesanan') }}">{{ __('Pemesanan') }}</a>
+					</li>
+						<li class="nav-item">
+						<a class="nav-link" href="{{ url('contact') }}">{{ __('Contact') }}</a>
+					</li>
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 							<img src="{{asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
@@ -392,7 +401,7 @@
 					<div class="form-group">
 						<label>Tanggal Mulai</label>
 						<div class="input-group date" id="tgl1">
-							<input type="text" class="form-control" />	
+							<input type="text" class="form-control" required />	
 							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
 						</div>
 					</div>
@@ -401,26 +410,26 @@
 					<div class="form-group">
 						<label>Tanggal Berakhir</label>
 						<div class="input-group date" id="tgl2">
-							<input type="text" class="form-control"/>	
+							<input type="text" class="form-control" required/>	
 							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label>Selisih Hari</label>
+					<label>Durasi Peminjaman</label>
 					<form action="" id="harii" method= "get">
 						<input type="text" class="form-control" name="selisih" id="selisih"/>
 					</form>
 				</div>
 				@csrf
-				<div class="size10 trans-0-4 m-t-10 m-b-10">
+				{{-- <div class="size10 trans-0-4 m-t-10 m-b-10">
 					<!-- Button -->
 					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 update-cart" data-id="{{$id}}">
 						
 						Update Cart
 						
 					</button>
-				</div>
+				</div> --}}
 			</div>
 			<!-- Total -->
 			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">

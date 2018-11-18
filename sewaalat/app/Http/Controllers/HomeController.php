@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use App\Barang;
 use App\Kategori;
 use App\Booking;
+use App\User;
 use DB;
 use Illuminate\Http\Request;
 
@@ -28,6 +29,15 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function contact()
+    {
+        return view('contact');
+    }
+     public function pemesanan()
+    {
+        $pemesanan = DB::table('booking')->where('user_id', Auth::user()->id)->get();
+        return view('pemesanan',compact('pemesanan'));
     }
 
     public function produk()
