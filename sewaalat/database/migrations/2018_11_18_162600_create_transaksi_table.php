@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBookingTable extends Migration
+class CreateTransaksiTable extends Migration
 {
-    public $tablename = 'booking';
-    /*
+    public $tablename = 'transaksi';
+    /**
      * Run the migrations.
      *
      * @return void
@@ -16,16 +16,13 @@ class CreateBookingTable extends Migration
     {
         Schema::create($this->tablename, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_pemesan');
-            $table->string('alamat_pemesan');
-            $table->string('nomor');
-            $table->date('tanggal_pemesan');
-            $table->date('tanggal_kembali');
-            $table->string('total');
-            $table->char('user_id')->nullable();
+            $table->char('booking_id');
+            $table->char('barang_id');
+            $table->string('jumlah_barang');
             $table->timestamps();
 
-            $table->index('user_id');
+            $table->index('booking_id');
+            $table->index('barang_id');
         });
     }
 

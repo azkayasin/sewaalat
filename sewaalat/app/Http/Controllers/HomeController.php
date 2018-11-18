@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Barang;
 use App\Kategori;
+use App\Booking;
 use DB;
 use Illuminate\Http\Request;
 
@@ -119,4 +120,32 @@ class HomeController extends Controller
         return view('produk', compact('lama'));
     }
 
+    public function store(Request $request)
+    {
+
+         $validator = \Validator::make($request->all(), [
+            'name' => 'required',
+            'alamat' => 'required',
+            'nomor' => 'required',
+            'tanggalpesan' => 'required',
+            'tanggalkembali' => 'required',
+            'total1' => 'required',
+        ]);
+        
+        if ($validator->fails())
+        {
+            return response()->json(['errors'=>$validator->errors()->all()]);
+        }
+        $booking= new Booking();
+        $booking->nama_pemesan=$request->name;
+        $booking->user_id=$request->user_id;
+        $booking->alamat_pemesan=$request->alamat;
+        $booking->nomor=$request->nomor;
+        $booking->tanggal_pemesan=$request->tanggalpesan;
+        $booking->tanggal_kembali=$request->tanggalkembali;
+        $booking->total=$request->total1;
+        $booking->save();
+   
+        return view('home');
+    }
 }

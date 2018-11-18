@@ -14,8 +14,8 @@ class Booking extends Model
     	return $this->hasOne('App\User');
     }
 
-    public function barang()
+    public function booking()
     {
-    	return $this->hasMany('App\Barang');
+        return $this->hasMany('App\Transaksi');
     }
 }

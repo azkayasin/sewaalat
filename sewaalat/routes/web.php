@@ -26,3 +26,5 @@ Route::get('/add-to-cart/{id}','HomeController@addToCart')->name('bebas');
 Route::patch('/update-cart','HomeController@update');
 
 Route::get('/filter/{filter}', 'HomeController@filter' ) ->name('filter');
+
+Route::post('/home','HomeController@store')->name('home.post');

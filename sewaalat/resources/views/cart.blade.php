@@ -484,7 +484,7 @@
 
 
 	<div class="container">
-		<form method="get" action="{{url('home')}}" id="form">
+		<form method="post" action="{{url('home')}}" id="form">
 			@csrf
 			<!-- Modal -->
 			<div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -498,13 +498,13 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form action="" >
 							<div class="modal-body">
 								<div class="row">
 									<div class="form-group col-md-6">
 										<label for="Country">Nama Pemesan: </label>
 										<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->name) }}">
 									</div>
+									<input type="text" hidden class="form-control" name="user_id" id="user_id" value="{{(Auth::user()->id) }}">
 								</div>
 								<div class="row">
 									<div class="form-group col-md-6">
@@ -521,12 +521,12 @@
 								<div class="row">
 									<div class="form-group col-md-6">
 										<label for="Country">Tanggal Pemesanan: </label>
-										<input type="date" class="form-control" name="tanggalpesan" id="tanggalpesan" disabled>
+										<input type="date" class="form-control" name="tanggalpesan" id="tanggalpesan" >
 
 									</div>
 									<div class="form-group col-md-6">
 										<label for="Country">Tanggal Kembali: </label>
-										<input type="date" class="form-control" name="tanggalkembali" id="tanggalkembali" disabled>
+										<input type="date" class="form-control" name="tanggalkembali" id="tanggalkembali">
 
 									</div>
 								</div>
@@ -558,14 +558,14 @@
 								<div class="row">
 									<div class="form-group col-md-6">
 										<label for="Country">Total: </label>
-										<input type="text" class="form-control" name="total1" id="total1" disabled>
+										<input type="text" class="form-control" name="total1" id="total1" >
 									</div>
 								</div>
 							</div>
 
 							<div class="modal-footer">
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-								<button  class="btn btn-success btn-addcart" id="ajaxSubmit" >Pesan</button>
+								<button  type="submit" class="btn btn-success btn-addcart">Pesan</button>
 							</div>
 						</form>
 						
@@ -624,7 +624,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script>
 		jQuery(document).ready(function(){
-			jQuery('#ajaxSubmit').click(function(e){
+			jQuery('').click(function(e){
 				e.preventDefault();
 				$.ajaxSetup({
 					headers: {
@@ -633,12 +633,14 @@
 				});
 				jQuery.ajax(
 					url: "{{ url('/home') }}",
-					method: 'get',
-					data: {s
+					method: 'post',
+					data: {
 						nama: jQuery('#nama').val(),
-						harga: jQuery('#harga').val(),
-						country: jQuery('#country').val(),
-						score: jQuery('#score').val(),
+						alamat: jQuery('#alamat').val(),
+						nomor: jQuery('#nomor').val(),
+						pesan: jQuery('#tanggalpesan').val(),
+						kembali: jQuery('#tanggalkembali').val(),
+						total: jQuery('#total1').val(),
 					},
 					success: function(result){
 						if(result.errors)
