@@ -498,75 +498,77 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
+						<form action="" >
+							<div class="modal-body">
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="Country">Nama Pemesan: </label>
+										<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->name) }}">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="Country">Alamat Pemesan: </label>
+										<input type="text" class="form-control" name="alamat" id="alamat" value="{{(Auth::user()->alamat) }}">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="Country">Nomor Pemesan: </label>
+										<input type="text" class="form-control" name="nomor" id="nomor" value="{{(Auth::user()->phone) }}">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="Country">Tanggal Pemesanan: </label>
+										<input type="date" class="form-control" name="tanggalpesan" id="tanggalpesan" disabled>
+
+									</div>
+									<div class="form-group col-md-6">
+										<label for="Country">Tanggal Kembali: </label>
+										<input type="date" class="form-control" name="tanggalkembali" id="tanggalkembali" disabled>
+
+									</div>
+								</div>
+								<div class="row">
+
+									<div class="form-group col-md-6">
+										<label for="Nama">Nama:</label>
+										@if(session('cart'))
+										@foreach(session('cart') as $id => $details)
+										<ul>
+											<li id="harga">{{$details['nama']}}</li>
+										</ul>
+										@endforeach
+										@endif
+									</div>
+									<div class="form-group col-md-6">
+										<label for="Harga">Harga:</label>
+										@if(session('cart'))
+										@foreach(session('cart') as $id => $details)
+										<ul>
+											<li id="harga">Rp .{{$details['harga'] * $details['jumlah']}} , 00</li>
+										</ul>
+										@endforeach
+										@endif
+									</div>
+								</div>
+
+
+								<div class="row">
+									<div class="form-group col-md-6">
+										<label for="Country">Total: </label>
+										<input type="text" class="form-control" name="total1" id="total1" disabled>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+								<button  class="btn btn-success btn-addcart" id="ajaxSubmit" >Pesan</button>
+							</div>
+						</form>
 						
-						<div class="modal-body">
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Country">Nama Pemesan: </label>
-									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->name) }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Country">Alamat Pemesan: </label>
-									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->alamat) }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Country">Nomor Pemesan: </label>
-									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->phone) }}">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Country">Tanggal Pemesanan: </label>
-									<span class="m-text21 w-size20 w-full-sm" id="tanggalpesan"></span>
-									
-								</div>
-								<div class="form-group col-md-6">
-									<label for="Country">Tanggal Kembali: </label>
-									<span class="m-text21 w-size20 w-full-sm" id="tanggalkembali"></span>
-									
-								</div>
-							</div>
-							<div class="row">
-								
-								<div class="form-group col-md-6">
-									<label for="Nama">Nama:</label>
-									@if(session('cart'))
-									@foreach(session('cart') as $id => $details)
-									<ul>
-										<li id="harga">{{$details['nama']}}</li>
-									</ul>
-									@endforeach
-									@endif
-								</div>
-								<div class="form-group col-md-6">
-									<label for="Harga">Harga:</label>
-									@if(session('cart'))
-									@foreach(session('cart') as $id => $details)
-									<ul>
-										<li id="harga">Rp .{{$details['harga'] * $details['jumlah']}} , 00</li>
-									</ul>
-									@endforeach
-									@endif
-								</div>
-							</div>
-
-							
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Country">Total: </label>
-									<span class="m-text21 w-size20 w-full-sm" id="total1"></span>
-								</div>
-							</div>
-						</div>
-
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-							<button  class="btn btn-success btn-addcart" id="ajaxSubmit" >Pesan</button>
-						</div>
 						
 					</div>
 				</div>
@@ -682,7 +684,17 @@
 			});
 
 		});
+		function formatDate(date) {
+			var d = new Date(date),
+			month = '' + (d.getMonth() + 1),
+			day = '' + d.getDate(),
+			year = d.getFullYear();
 
+			if (month.length < 2) month = '0' + month;
+			if (day.length < 2) day = '0' + day;
+
+			return [year, month, day].join('-');
+		}
 		function CalcDiff(){
 			var a=$('#tgl1').data("DateTimePicker").date();
 			var b=$('#tgl2').data("DateTimePicker").date();
@@ -701,9 +713,9 @@
 			var hasil= "Rp. "+(total*selesihHari)+" ,00"
 	// console.log(hasil)
 	$('#total').html(hasil)
-	$('#tanggalpesan').text(pesan.format('DD/MMMM/YYYY'))
-	$('#tanggalkembali').text(kembali.format('DD/MMMM/YYYY'))
-	$('#total1').html(hasil)
+	$('#tanggalpesan').attr('value',formatDate(pesan))
+	$('#tanggalkembali').attr('value',formatDate(kembali))
+	$('#total1').attr('value',hasil)
 	//$('#bayartotal').val($hitungtotal)   
 }
 </script>	
