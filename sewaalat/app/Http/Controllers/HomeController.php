@@ -118,4 +118,5 @@ class HomeController extends Controller
         $lama = $kembali->diffInDays($pesan);
         return view('produk', compact('lama'));
     }
+
 }

@@ -2,41 +2,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Product</title>
+	<title>ITS RENT</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="icon" type="image/png" href="{{asset('images/icons/favicon.png')}}"/>
 	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/bootstrap/css/bootstrap.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('fonts/themify/themify-icons.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('fonts/elegant-font/html-css/style.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/elegant-font/html-css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/animate/animate.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/css-hamburgers/hamburgers.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/animsition/css/animsition.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/select2/select2.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/slick/slick.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('vendor/noui/nouislider.min.css')}}">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
-	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('css/util.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{URL::asset('css/main.css')}}">
 	<!--===============================================================================================-->
 	<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css"/>
 </head>
 <body class="animsition">
-
 	<!-- Header -->
 	<header class="header1">
 		<!-- Header desktop -->
@@ -47,7 +46,7 @@
 			<div class="wrap_header">
 				<!-- Logo -->
 				<a href="{{ url('/') }}" class="logo">
-					<img src="images/icons/logo.png" alt="IMG-LOGO">
+					<img src="{{asset('images/icons/logo.png') }}" alt="IMG-LOGO">
 				</a>
 
 				<!-- Menu -->
@@ -68,7 +67,7 @@
 					@else
 					<li class="nav-item dropdown">
 						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-							<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+							<img src="{{asset('images/icons/icon-header-01.png') }}" class="header-icon1" alt="ICON">
 							{{ Auth::user()->name }} <span class="caret"></span>
 						</a>
 
@@ -89,64 +88,45 @@
 				<span class="linedivide1"></span>
 
 				<div class="header-wrapicon2">
-					<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
-					<span class="header-icons-noti">0</span>
+					<img src="{{asset('images/icons/icon-header-02.png') }}" class="header-icon1 js-show-header-dropdown" alt="ICON">
+					<span class="header-icons-noti">{{count(session('cart'))}}</span>
 
 					<!-- Header cart noti -->
 					<div class="header-cart header-dropdown">
+
+						@if(session('cart'))
+						@foreach(session('cart') as $id => $details)
+
 						<ul class="header-cart-wrapitem">
 							<li class="header-cart-item">
 								<div class="header-cart-item-img">
-									<img src="images/item-cart-01.jpg" alt="IMG">
+									<img src="{{$details['image']}}" alt="IMG">
 								</div>
 
 								<div class="header-cart-item-txt">
 									<a href="#" class="header-cart-item-name">
-										White Shirt With Pleat Detail Back
+										{{$details['nama']}}
 									</a>
 
 									<span class="header-cart-item-info">
-										1 x $19.00
-									</span>
-								</div>
-							</li>
-
-							<li class="header-cart-item">
-								<div class="header-cart-item-img">
-									<img src="images/item-cart-02.jpg" alt="IMG">
-								</div>
-
-								<div class="header-cart-item-txt">
-									<a href="#" class="header-cart-item-name">
-										Converse All Star Hi Black Canvas
-									</a>
-
-									<span class="header-cart-item-info">
-										1 x $39.00
-									</span>
-								</div>
-							</li>
-
-							<li class="header-cart-item">
-								<div class="header-cart-item-img">
-									<img src="images/item-cart-03.jpg" alt="IMG">
-								</div>
-
-								<div class="header-cart-item-txt">
-									<a href="#" class="header-cart-item-name">
-										Nixon Porter Leather Watch In Tan
-									</a>
-
-									<span class="header-cart-item-info">
-										1 x $17.00
+										{{$details['jumlah']}} * {{$details['harga']}}
 									</span>
 								</div>
 							</li>
 						</ul>
+						@endforeach
+						@endif
 
+						<?php $total = 0 ?>
+						@if(session('cart'))
+						@foreach(session('cart') as $id => $details)
+						<?php $total += $details['harga'] * $details['jumlah'] ?>
+						@endforeach
+						@endif
 						<div class="header-cart-total">
-							Total: $75.00
+							{{$total}}
 						</div>
+
 
 						<div class="header-cart-buttons">
 							<div class="header-cart-wrapbtn">
@@ -410,21 +390,21 @@
 			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
 				<div class="row">
 					<div class="form-group">
-					<label>Tanggal Mulai</label>
-					<div class="input-group date" id="tgl1">
-						<input type="text" class="form-control" />	
+						<label>Tanggal Mulai</label>
+						<div class="input-group date" id="tgl1">
+							<input type="text" class="form-control" />	
 							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
-					</div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
-						<div class="form-group">
-					<label>Tanggal Berakhir</label>
-					<div class="input-group date" id="tgl2">
-						<input type="text" class="form-control"/>	
+					<div class="form-group">
+						<label>Tanggal Berakhir</label>
+						<div class="input-group date" id="tgl2">
+							<input type="text" class="form-control"/>	
 							<span class="input-group-addon"><span class="glyphicon-calendar glyphicon"></span></span>
+						</div>
 					</div>
-				</div>
 				</div>
 				<div class="form-group">
 					<label>Selisih Hari</label>
@@ -459,14 +439,14 @@
 						Total:
 					</span>
 					<span class="m-text21 w-size20 w-full-sm" id="total">
-						Rp. {{$total}} ,00
+						
 					</span>
 				</div>
 
 				<div class="size15 trans-0-4">
 					<!-- Button -->
 					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" data-target="#myModal" data-toggle="modal">
-						Proceed to Checkout
+						Pembayaran
 					</button>
 				</div>
 			</div>
@@ -477,165 +457,11 @@
 
 	<!-- Footer -->
 	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
-		<div class="flex-w p-b-90">
-			<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
-				<h4 class="s-text12 p-b-30">
-					GET IN TOUCH
-				</h4>
-
-				<div>
-					<p class="s-text7 w-size27">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-					</p>
-
-					<div class="flex-m p-t-30">
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-						<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
-					</div>
-				</div>
-			</div>
-
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">
-					Categories
-				</h4>
-
-				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Men
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Women
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Dresses
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Sunglasses
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">
-					Links
-				</h4>
-
-				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Search
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							About Us
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Contact Us
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Returns
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="w-size7 p-t-30 p-l-15 p-r-15 respon4">
-				<h4 class="s-text12 p-b-30">
-					Help
-				</h4>
-
-				<ul>
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Track Order
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Returns
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							Shipping
-						</a>
-					</li>
-
-					<li class="p-b-9">
-						<a href="#" class="s-text7">
-							FAQs
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="w-size8 p-t-30 p-l-15 p-r-15 respon3">
-				<h4 class="s-text12 p-b-30">
-					Newsletter
-				</h4>
-
-				<form>
-					<div class="effect1 w-size9">
-						<input class="s-text7 bg6 w-full p-b-5" type="text" name="email" placeholder="email@example.com">
-						<span class="effect1-line"></span>
-					</div>
-
-					<div class="w-size2 p-t-20">
-						<!-- Button -->
-						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribe
-						</button>
-					</div>
-
-				</form>
-			</div>
-		</div>
 
 		<div class="t-center p-l-15 p-r-15">
-			<a href="#">
-				<img class="h-size2" src="images/icons/paypal.png" alt="IMG-PAYPAL">
-			</a>
-
-			<a href="#">
-				<img class="h-size2" src="images/icons/visa.png" alt="IMG-VISA">
-			</a>
-
-			<a href="#">
-				<img class="h-size2" src="images/icons/mastercard.png" alt="IMG-MASTERCARD">
-			</a>
-
-			<a href="#">
-				<img class="h-size2" src="images/icons/express.png" alt="IMG-EXPRESS">
-			</a>
-
-			<a href="#">
-				<img class="h-size2" src="images/icons/discover.png" alt="IMG-DISCOVER">
-			</a>
+			<div class="t-center s-text8 p-t-20">
+				Created by KUATdanLIAR Productions INFORMATIKA ITS
+			</div>
 
 			<div class="t-center s-text8 p-t-20">
 				Copyright © 2018 All rights reserved. | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
@@ -656,11 +482,9 @@
 	<div id="dropDownSelect1"></div>
 	<div id="dropDownSelect2"></div>
 
+
 	<div class="container">
-		<h2>Modal Example</h2>
-		<!-- Trigger the modal with a button -->
-		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" id="open">Open Modal</button>
-		<form method="post" action="{{url('chempionleague')}}" id="form">
+		<form method="get" action="{{url('home')}}" id="form">
 			@csrf
 			<!-- Modal -->
 			<div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -676,6 +500,36 @@
 						</div>
 						
 						<div class="modal-body">
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Country">Nama Pemesan: </label>
+									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->name) }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Country">Alamat Pemesan: </label>
+									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->alamat) }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Country">Nomor Pemesan: </label>
+									<input type="text" class="form-control" name="name" id="name" value="{{(Auth::user()->phone) }}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6">
+									<label for="Country">Tanggal Pemesanan: </label>
+									<span class="m-text21 w-size20 w-full-sm" id="tanggalpesan"></span>
+									
+								</div>
+								<div class="form-group col-md-6">
+									<label for="Country">Tanggal Kembali: </label>
+									<span class="m-text21 w-size20 w-full-sm" id="tanggalkembali"></span>
+									
+								</div>
+							</div>
 							<div class="row">
 								
 								<div class="form-group col-md-6">
@@ -693,25 +547,18 @@
 									@if(session('cart'))
 									@foreach(session('cart') as $id => $details)
 									<ul>
-										<li id="harga">{{$details['harga'] * $details['jumlah']}}</li>
+										<li id="harga">Rp .{{$details['harga'] * $details['jumlah']}} , 00</li>
 									</ul>
 									@endforeach
 									@endif
 								</div>
-
-
 							</div>
+
 							
 							<div class="row">
 								<div class="form-group col-md-6">
 									<label for="Country">Total: </label>
-									<span class="m-text21 w-size20 w-full-sm">Rp. {{$total}} ,00</span>
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group col-md-6">
-									<label for="Tanggal">Tanggal Pemesan:</label>
-									<input type="date" class="form-control" name="score" id="tanggal">
+									<span class="m-text21 w-size20 w-full-sm" id="total1"></span>
 								</div>
 							</div>
 						</div>
@@ -771,7 +618,8 @@
 				}
 			});
 		});
-</script>
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<script>
 		jQuery(document).ready(function(){
 			jQuery('#ajaxSubmit').click(function(e){
@@ -783,7 +631,7 @@
 				});
 				jQuery.ajax(
 					url: "{{ url('/home') }}",
-					method: 'post',
+					method: 'get',
 					data: {s
 						nama: jQuery('#nama').val(),
 						harga: jQuery('#harga').val(),
@@ -811,46 +659,51 @@
 		});
 	</script>
 	<script>
-$(function() { 
-  $('#tgl1').datetimepicker({
-   locale:'id',
-   format:'DD/MMMM/YYYY'
-   });
-   
-  $('#tgl2').datetimepicker({
-   useCurrent: false,
-   locale:'id',
-   format:'DD/MMMM/YYYY'
-   });
-   
-   $('#tgl1').on("dp.change", function(e) {
-    $('#tgl2').data("DateTimePicker").minDate(e.date);
-     CalcDiff()
-  });
-  
-   $('#tgl2').on("dp.change", function(e) {
-    $('#tgl1').data("DateTimePicker").maxDate(e.date);
-      CalcDiff()
-   });
-  
-});
+		$(function() { 
+			$('#tgl1').datetimepicker({
+				locale:'id',
+				format:'DD/MMMM/YYYY'
+			});
 
-function CalcDiff(){
-var a=$('#tgl1').data("DateTimePicker").date();
-var b=$('#tgl2').data("DateTimePicker").date();
-console.log(a,b);
-    var timeDiff=0
-     if (a & b) {
-            timeDiff = (b - a) / 1000;
-        }
-    console.log(timeDiff);
-    var total= {{$total}};
-    var selesihHari=Math.floor(timeDiff/(86400));
-	var hari = $('#selisih').val(selesihHari);
-	$('#selisih').val(selesihHari)
-	var hasil= "Rp. "+(total*selesihHari)+" ,00"
+			$('#tgl2').datetimepicker({
+				useCurrent: false,
+				locale:'id',
+				format:'DD/MMMM/YYYY'
+			});
+
+			$('#tgl1').on("dp.change", function(e) {
+				$('#tgl2').data("DateTimePicker").minDate(e.date);
+				CalcDiff()
+			});
+
+			$('#tgl2').on("dp.change", function(e) {
+				$('#tgl1').data("DateTimePicker").maxDate(e.date);
+				CalcDiff()
+			});
+
+		});
+
+		function CalcDiff(){
+			var a=$('#tgl1').data("DateTimePicker").date();
+			var b=$('#tgl2').data("DateTimePicker").date();
+			console.log(a,b);
+			var timeDiff=0
+			if (a & b) {
+				timeDiff = (b - a) / 1000;
+			}
+			console.log(timeDiff);
+			var total= {{$total}};
+			var selesihHari=Math.floor(timeDiff/(86400));
+			var hari = $('#selisih').val(selesihHari);
+			var pesan = a;
+			var kembali = b;
+			$('#selisih').val(selesihHari)
+			var hasil= "Rp. "+(total*selesihHari)+" ,00"
 	// console.log(hasil)
 	$('#total').html(hasil)
+	$('#tanggalpesan').text(pesan.format('DD/MMMM/YYYY'))
+	$('#tanggalkembali').text(kembali.format('DD/MMMM/YYYY'))
+	$('#total1').html(hasil)
 	//$('#bayartotal').val($hitungtotal)   
 }
 </script>	
