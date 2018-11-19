@@ -108,7 +108,7 @@ class BarangSeeder extends Seeder
         $barang->imageUrl = '/images/5/laptop.jpg';
         $barang->kategori_id = Kategori::where('id',5)->first()->id;
         $barang->save();
-        $barang = new Barang;
+        
 
         $barang = new Barang;
         $barang->nama = 'Rumah';
@@ -117,7 +117,8 @@ class BarangSeeder extends Seeder
         $barang->imageUrl = '/images/6/rumah.jpg';
         $barang->kategori_id = Kategori::where('id',6)->first()->id;
         $barang->save();
-
+        
+        $barang = new Barang;
         $barang->nama = 'Apartemen';
         $barang->harga = '200000';
         $barang->stock = '700';

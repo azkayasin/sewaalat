@@ -136,18 +136,11 @@
 						</div>
 
 
-						<div class="header-cart-buttons">
+						<div class="header-cart-buttons justify-content-end">
 							<div class="header-cart-wrapbtn">
 								<!-- Button -->
 								<a href="{{ url('/cart') }}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-									View Cart
-								</a>
-							</div>
-
-							<div class="header-cart-wrapbtn">
-								<!-- Button -->
-								<a href="{{ url('/cart') }}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-									Check Out
+									Keranjang
 								</a>
 							</div>
 						</div>
@@ -336,7 +329,7 @@
 						</div>
 
 						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Handphone : 085786869692" disabled="">
+							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Handphone : 085743604280" disabled="">
 						</div>
 
 						<div class="bo4 of-hidden size15 m-b-20">
