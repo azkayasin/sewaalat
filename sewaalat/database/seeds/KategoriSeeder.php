@@ -29,10 +29,6 @@ class KategoriSeeder extends Seeder
         $kategori ->save();
 
         $kategori = new Kategori;
-        $kategori->kategori =  'Baju Adat';
-        $kategori ->save();
-
-        $kategori = new Kategori;
         $kategori->kategori =  'Elektronik';
         $kategori ->save();
 

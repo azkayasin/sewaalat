@@ -383,8 +383,8 @@
 
 				<!-- Pagination -->
 				<div class="pagination flex-m flex-w p-t-26">
-					<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-					<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+					<a href="{{ url('/produk') }}" class="item-pagination flex-c-m trans-0-4">1</a>
+					<a href="{{ url('/halaman') }}" class="item-pagination flex-c-m trans-0-4">2</a>
 				</div>
 			</div>
 		</div>

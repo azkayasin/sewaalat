@@ -42,7 +42,14 @@ class HomeController extends Controller
 
     public function produk()
     {
-        $produk = DB::table('barang')->get();
+        $produk = DB::table('barang')->simplePaginate(12);
+        $kategori = DB::table('kategori')->get();
+        return view('produk', compact('kategori', 'produk'));
+
+    }
+     public function halaman()
+    {
+        $produk = DB::table('barang')->where('id','>', 12)->get();
         $kategori = DB::table('kategori')->get();
         return view('produk', compact('kategori', 'produk'));
 
@@ -116,7 +123,7 @@ class HomeController extends Controller
 
     public function filter($id)
     {
-        $produk = DB::table('barang')->where('id', $id)->get();
+        $produk = DB::table('barang')->where('kategori_id', $id)->get();
         $kategori = DB::table('kategori')->get();
         return view('produk', compact('produk','kategori'));
 
@@ -155,6 +162,8 @@ class HomeController extends Controller
         $booking->tanggal_kembali=$request->tanggalkembali;
         $booking->total=$request->total1;
         $booking->save();
+
+        session()->forget('cart');
    
         return view('home');
     }
