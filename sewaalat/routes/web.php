@@ -24,6 +24,7 @@ Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::get('/pemesanan', 'HomeController@pemesanan')->name('pemesanan');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/halaman', 'HomeController@halaman')->name('halaman');
+Route::get('/pendaftar', 'HomeController@pendaftar')->name('pendaftar');
 
 Route::get('/add-to-cart/{id}','HomeController@addToCart')->name('bebas');
 Route::patch('/update-cart','HomeController@update');

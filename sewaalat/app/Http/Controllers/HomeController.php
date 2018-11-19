@@ -39,6 +39,11 @@ class HomeController extends Controller
         $pemesanan = DB::table('booking')->where('user_id', Auth::user()->id)->get();
         return view('pemesanan',compact('pemesanan'));
     }
+    public function pendaftar()
+    {
+        $pendaftar = DB::table('users')->get();
+        return view('pendaftar',compact('pendaftar'));
+    }
 
     public function produk()
     {
